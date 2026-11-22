@@ -1,1 +1,90 @@
 
+import { createFileRoute } from "@tanstack/react-router";
+import { Instagram, MessageCircle } from "lucide-react";
+import { Button } from "@/components/ui/button";
+
+export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "PWC Studio — Pray without ceasing" },
+      {
+        name: "description",
+        content:
+          "A quiet, faith-rooted artisan studio for handmade crochet and paper goods. Browse our creations and order directly.",
+      },
+      { property: "og:title", content: "PWC Studio — Pray without ceasing" },
+      {
+        property: "og:description",
+        content:
+          "A quiet, faith-rooted artisan studio for handmade crochet and paper goods. Browse our creations and order directly.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
+    ],
+  }),
+  component: Index,
+});
+
+function Index() {
+  return (
+    <div className="studio-page">
+      <header className="studio-header">
+        <p className="studio-wordmark">PWC Studio</p>
+      </header>
+
+      <main className="studio-main">
+        <section className="scripture" aria-labelledby="scripture-title">
+          <p className="scripture-prelude">
+            <sup>16</sup> Rejoice evermore.
+          </p>
+          <h1 className="scripture-title" id="scripture-title">
+            <sup>17</sup> Pray without ceasing.
+          </h1>
+          <p className="scripture-closing">
+            <sup>18</sup> In every thing give thanks: for this is the will of God in Christ Jesus
+            concerning you.
+          </p>
+          <p className="scripture-reference">
+            <span>1 Thessalonians 5:16–18</span>
+          </p>
+        </section>
+
+        <section className="launch-note" aria-label="Launching soon">
+          <p className="launch-label">Launching soon</p>
+          <p className="launch-copy">
+            Our full website is currently being crafted and will be launching very soon. In the
+            meantime, you can browse our creations and place orders directly with us below.
+          </p>
+        </section>
+
+        <nav className="order-links" aria-label="Order from PWC Studio">
+          <Button asChild className="order-link" size="lg" variant="studioPrimary">
+            <a
+              href="https://api.whatsapp.com/send/?phone=9121777321&text&type=phone_number&app_absent=0"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <MessageCircle aria-hidden="true" />
+              <span>Order on WhatsApp</span>
+            </a>
+          </Button>
+          <Button asChild className="order-link" size="lg" variant="studioSecondary">
+            <a
+              href="https://www.instagram.com/pwcstudio7?srtk=MTcwbnZ2NDZvZzkzMg%3D%3D"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Instagram aria-hidden="true" />
+              <span>Order on Instagram</span>
+            </a>
+          </Button>
+        </nav>
+      </main>
+
+      <footer className="studio-footer">
+        <p>© PWC Studio</p>
+        <p>Handcrafted with care.</p>
+      </footer>
+    </div>
+  );
+}
